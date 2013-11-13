@@ -1,14 +1,14 @@
 # Add reactive HTML attributes to templates
 # -----------------------------------------
-# setAttributes.call(this, ...)
-setAttributes = (template, handlebarsId, attrSets, attrLogic) ->
+# attrSet.call(this, ...)
+attrSet = (handlebarsId, template, attrSets, attrLogic) ->
   that = this
-  check template, String
+  check template, Match.ObjectIncluding in: String
   check handlebarsId, String
   check attrSets, Object
   check attrLogic, Function
 
-  Template[templateInstance][handlebarsId] = ->
+  Template[template.in][handlebarsId] = ->
     attrSet = attrLogic.call(that)
     if attrSets.hasOwnProperty attrProfile
       return attrSets[attrProfile]
