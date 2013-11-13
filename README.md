@@ -29,17 +29,20 @@ CoffeeScript:
 ```coffeescript
 Session.set "isChatVisible", true
 
+# HTML attributes as key: value, grouped into named sets
 chatVisible =
   shown: {}
   hidden:
     style: "display: none;"
 
+# A reactive computation to run to get the name of the set to load
 getChatVisible = ->
   if Session.equals("isChatVisible", true)
     "shown"
   else
     "hidden"
 
+# Make it happen!
 attrSet "container"
   in: "chat", chatVisible, getChatVisible
 ```
