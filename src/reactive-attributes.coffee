@@ -11,7 +11,7 @@ attrString = (key, val) ->
 # Add reactive HTML attributes to templates
 # -----------------------------------------
 # attrSet.call(this, ...)
-attrSet = (handlebarsId, template, attrSets, attrLogic) ->
+@attrSet = (handlebarsId, template, attrSets, attrLogic) ->
   that = this
 
   # Validate inputs

@@ -8,6 +8,6 @@ Package.on_use(function (api, where) {
 });
 
 Package.on_test(function (api) {
-  api.use('handlebars-attrs');
+  api.use('reactive-attributes');
   api.add_files('test/reactive-attributes-tests.js', ['client']);
 });
