@@ -18,7 +18,7 @@ HTML:
 
 ```html
 <template name="chat">
-  <div class="chat-container" {{{attrSet container}}}>
+  <div {{{container}}}>
     ...
   </div>
 </template>
@@ -28,11 +28,15 @@ CoffeeScript:
 
 ```coffeescript
 Session.set "isChatVisible", true
+classes = ["chat-container", "full-width"]
 
 # HTML attributes as key: value, grouped into named sets
 chatVisible =
-  shown: {}
+  shown:
+    class: classes
+
   hidden:
+    class: classes
     style: "display: none;"
 
 # A reactive computation to run to get the name of the set to load
@@ -51,10 +55,14 @@ attrSet "container"
 
 ```javascript
 Session.set('isChatVisible', true);
+classes = ["chat-container", "full-width"]
 
 var chatVisible = {
-  shown: {},
+  shown: {
+    class: classes
+  },
   hidden: {
+    class: classes,
     style: 'display: none;'
   }
 };
