@@ -11,7 +11,6 @@ Install without Meteorite:
 
 Just `git clone` this repo into the /packages directory of your Meteor project.
 
-
 Getting Started
 ===============
 
