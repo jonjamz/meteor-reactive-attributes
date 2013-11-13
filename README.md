@@ -55,7 +55,7 @@ attrSet "container"
 
 ```javascript
 Session.set('isChatVisible', true);
-classes = ["chat-container", "full-width"]
+classes = ["chat-container", "full-width"];
 
 var chatVisible = {
   shown: {
