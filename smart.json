@@ -1,0 +1,9 @@
+{
+  "name": "reactive-attributes",
+  "description": "Reactive sets of HTML attributes.",
+  "homepage": "https://github.com/jonjamz/meteor-reactive-attributes",
+  "author": "Jonathan James",
+  "version": "0.0.1",
+  "git": "https://github.com/jonjamz/meteor-reactive-attributes.git",
+  "packages": {}
+}
