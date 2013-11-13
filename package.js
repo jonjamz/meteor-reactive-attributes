@@ -3,7 +3,7 @@ Package.describe({
 });
 
 Package.on_use(function (api, where) {
-  api.use(["underscore", "templating", "handlebars", "check"], ["client"]);
+  api.use(["templating", "handlebars", "check"], ["client"]);
   api.add_files('lib/reactive-attributes.js', ['client']);
 });
 
