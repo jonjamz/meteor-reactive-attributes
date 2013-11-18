@@ -3,7 +3,7 @@
   "description": "Reactive sets of HTML attributes.",
   "homepage": "https://github.com/jonjamz/meteor-reactive-attributes",
   "author": "Jonathan James",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "git": "https://github.com/jonjamz/meteor-reactive-attributes.git",
   "packages": {}
 }
