@@ -15,7 +15,9 @@ attrString = (key, val) ->
   that = this
 
   # Validate inputs
-  check template, Match.ObjectIncluding in: String
+  check template, Match.ObjectIncluding
+    in: String
+    namespace: Match.Optional String
   check handlebarsId, String
   check attrSets, Object
   check attrLogic, Function
@@ -26,9 +28,16 @@ attrString = (key, val) ->
     fullAttrString += attrString attr, val for own attr, val of attrs
     attrSets[set] = fullAttrString
 
-  Template[template.in][handlebarsId] = ->
+  # Wrap sets and logic in a function
+  func = ->
     attrSet = attrLogic.call(that)
     if attrSets.hasOwnProperty attrSet
       return attrSets[attrSet]
     else
       throw new Error "Attribute set #{attrSet} isn't specified for #{handlebarsId}"
+
+  # Add function to template
+  if template.namespace?
+    this[template.namespace][template.in][handlebarsId] = func
+  else
+    Template[template.in][handlebarsId] = func
