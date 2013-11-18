@@ -13,6 +13,7 @@ attrString = (key, val) ->
 # attrSet.call(this, ...)
 @attrSet = (handlebarsId, template, attrSets, attrLogic) ->
   that = this
+  _attrSets = {}
 
   # Validate inputs
   check template, Match.ObjectIncluding
@@ -26,13 +27,13 @@ attrString = (key, val) ->
   for own set, attrs of attrSets
     fullAttrString = ''
     fullAttrString += attrString attr, val for own attr, val of attrs
-    attrSets[set] = fullAttrString
+    _attrSets[set] = fullAttrString
 
   # Wrap sets and logic in a function
   func = ->
-    attrSet = attrLogic.call(that)
-    if attrSets.hasOwnProperty attrSet
-      return attrSets[attrSet]
+    activeAttrSet = attrLogic.call(that)
+    if _attrSets.hasOwnProperty activeAttrSet
+      return _attrSets[activeAttrSet]
     else
       throw new Error "Attribute set #{attrSet} isn't specified for #{handlebarsId}"
 
