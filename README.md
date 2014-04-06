@@ -1,7 +1,7 @@
 Install
 =======
 
-__This package does not depend on any Atmosphere packages.__
+__This package probably does not work with Blaze. I will update it when I have some free time.__
 
 Install using Meteorite:
 
@@ -32,9 +32,12 @@ classes = ["chat-container", "full-width"]
 
 # HTML attributes as key: value, grouped into named sets
 chatVisible =
+
+  # Will be class="chat-container full-width" in HTML
   shown:
     class: classes
 
+  # Will be class="chat-container full-width" style="display: none;" in HTML
   hidden:
     class: classes
     style: "display: none;"
@@ -46,7 +49,8 @@ getChatVisible = ->
   else
     "hidden"
 
-# Make it happen!
+# Add these attributes to the {{{container}}} expression inside "chat" template
+# Use getChatVisible reactive computation to determine which set to show
 attrSet "container"
   in: "chat", chatVisible, getChatVisible
 ```
