@@ -1,7 +1,7 @@
 Install
 =======
 
-__This package probably does not work with Blaze. I will update it when I have some free time.__
+__This package has become obsolete with Blaze. Blaze allows you to pass in an object of attributes and values and have them displayed on an HTML element. I'm keeping this repo up in case anyone is using it. I'm not using it anymore.__
 
 Install using Meteorite:
 
